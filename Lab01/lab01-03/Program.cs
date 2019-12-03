@@ -38,25 +38,66 @@ namespace lab01_03
             {
                 Value.Output();
             }
-            
-            Console.ReadKey();
-        }
 
-        static double TongSoLuong(List<KhacHang> list, bool VBool)
-        {
-            if (VBool)
+
+
+            var KQFind = listKhacHang.Find(p => p.Id == Console.ReadLine());
+
+            if (KQFind == null)
             {
-                var listLoaiKhacHang = list.Where(p => (p is VietNam)).ToList();
-                return list.Average(p => p.SoLuong);
+                Console.WriteLine("Khong co Id do");
             }
             else
             {
-                var listLoaiKhacHang = list.Where(p => (p is NuocNgoai)).ToList();
-                return list.Average(p => p.SoLuong);
+                KQFind.Output();
             }
+            Console.ReadKey();
+        }
+
+        static void BaiLam(List<KhacHang> list)
+        {
+            var listVN = list.Where(p => (p is VietNam)).ToList();
+            if (listVN.Count != 0)
+            {
+                Console.WriteLine("Trung binh so luong VN: {0}", listVN.Average(p => p.SoLuong));
+            }
+            else
+            {
+                Console.WriteLine("Khong có Hoa don VN");
+            }
+            
+            //list.Average(p => p.SoLuong);
+            var listNG = list.Where(p => (p is NuocNgoai)).ToList();
+            if (listVN.Count != 0)
+            {
+                Console.WriteLine("Trung binh so luong Nuoc Ngoai: {0}", listNG.Average(p => p.SoLuong));
+
+                Console.WriteLine("Trung binh thanh tien nuoc ngoai: {0}", listVN.Average(p => p.ThanhTien));
+
+            }
+            else
+            {
+                Console.WriteLine("Khong có Hoa don Nuoc ngoai");
+            }
+           
+            var listDate = list.Where(p => p.Date.Month == 9 && p.Date.Year == 2019).ToList();
+
+            if (listDate.Count != 0)
+            {
+                foreach (var item in listDate)
+                {
+                    item.Output();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Khong có Hoa don Nuoc ngoai");
+            }
+            
+
         }
 
 
 
-    }
+}
 }
