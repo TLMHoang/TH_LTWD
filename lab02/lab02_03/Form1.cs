@@ -21,8 +21,8 @@ namespace lab02_03
         {
             if (Check())
             {
-                dgvTable[0, dgvTable.RowCount].Value = dgvTable.RowCount + 1;
-                dgvTable[1, dgvTable.RowCount].Value = txtID;
+                dgvTable.Rows.Add(dgvTable.RowCount, txtID.Text, txtName.Text, txtAddress.Text, txtMonney.Text);
+                //dgvTable.DataSource = dgvTable;
             }
         }
 
@@ -52,8 +52,32 @@ namespace lab02_03
             return true;
         }
 
-        private void txtID_Leave(object sender, EventArgs e)
+
+        private void dgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridView data = sender as DataGridView;
+            
+
+            int row = dgvTable.CurrentRow.Index;
+            txtID.Text = dgvTable.Rows[row].Cells[1].Value.ToString();
+            txtName.Text = dgvTable.Rows[row].Cells[2].Value.ToString();
+            txtAddress.Text = dgvTable.Rows[row].Cells[3].Value.ToString();
+            txtMonney.Text = dgvTable.Rows[row].Cells[4].Value.ToString();
+
+            
+
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            // gan bang cua DGV sang DataTable
+            DataTable data = new DataTable();
+            data = (DataTable)dgvTable.DataSource;
+
+
+
+
+            var list = data.AsEnumerable().Where(p => p[1].ToString() == "1");
 
         }
     }

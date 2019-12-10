@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvTable = new System.Windows.Forms.DataGridView();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -38,16 +37,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.colTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTable = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,23 +57,9 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(762, 39);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 13;
             this.label1.Text = "QUẢN LÝ THÔNG TIN TÀI KHOẢN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dgvTable
-            // 
-            this.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSTT,
-            this.colMa,
-            this.colName,
-            this.colAddress,
-            this.colTien});
-            this.dgvTable.Location = new System.Drawing.Point(8, 270);
-            this.dgvTable.Name = "dgvTable";
-            this.dgvTable.Size = new System.Drawing.Size(738, 340);
-            this.dgvTable.TabIndex = 1;
             // 
             // txtID
             // 
@@ -82,7 +67,7 @@
             this.txtID.Location = new System.Drawing.Point(250, 81);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(390, 26);
-            this.txtID.TabIndex = 2;
+            this.txtID.TabIndex = 0;
             // 
             // txtAddress
             // 
@@ -98,7 +83,7 @@
             this.txtName.Location = new System.Drawing.Point(250, 116);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(390, 26);
-            this.txtName.TabIndex = 2;
+            this.txtName.TabIndex = 1;
             // 
             // txtMonney
             // 
@@ -106,7 +91,7 @@
             this.txtMonney.Location = new System.Drawing.Point(250, 186);
             this.txtMonney.Name = "txtMonney";
             this.txtMonney.Size = new System.Drawing.Size(390, 26);
-            this.txtMonney.TabIndex = 2;
+            this.txtMonney.TabIndex = 3;
             // 
             // label2
             // 
@@ -115,7 +100,7 @@
             this.label2.Location = new System.Drawing.Point(123, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 20);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 12;
             this.label2.Text = "Số tài khoản";
             // 
             // label3
@@ -125,7 +110,7 @@
             this.label3.Location = new System.Drawing.Point(98, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 20);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 11;
             this.label3.Text = "Tên khách hàng";
             // 
             // label4
@@ -135,7 +120,7 @@
             this.label4.Location = new System.Drawing.Point(77, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(144, 20);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 10;
             this.label4.Text = "Địa chỉ khách hàng";
             // 
             // label5
@@ -145,42 +130,12 @@
             this.label5.Location = new System.Drawing.Point(52, 189);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(169, 20);
-            this.label5.TabIndex = 3;
+            this.label5.TabIndex = 9;
             this.label5.Text = "Số tiền trong tài khoản";
-            // 
-            // colSTT
-            // 
-            this.colSTT.HeaderText = "STT";
-            this.colSTT.Name = "colSTT";
-            this.colSTT.Width = 40;
-            // 
-            // colMa
-            // 
-            this.colMa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMa.HeaderText = "Số tài khoản";
-            this.colMa.Name = "colMa";
-            // 
-            // colName
-            // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colName.HeaderText = "Tên khách hàng";
-            this.colName.Name = "colName";
-            // 
-            // colAddress
-            // 
-            this.colAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colAddress.HeaderText = "Địa chỉ";
-            this.colAddress.Name = "colAddress";
-            // 
-            // colTien
-            // 
-            this.colTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTien.HeaderText = "Số tiền";
-            this.colTien.Name = "colTien";
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(247, 239);
+            this.btnThem.Location = new System.Drawing.Point(250, 218);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 4;
@@ -190,7 +145,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(328, 239);
+            this.btnXoa.Location = new System.Drawing.Point(328, 218);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 5;
@@ -199,36 +154,73 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(490, 239);
+            this.btnThoat.Location = new System.Drawing.Point(490, 218);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 7;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(409, 239);
+            this.btnSua.Location = new System.Drawing.Point(409, 218);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.TabIndex = 7;
+            this.btnSua.TabIndex = 6;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // colTien
             // 
-            this.listView1.Location = new System.Drawing.Point(81, 238);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 8;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.colTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTien.HeaderText = "Số tiền";
+            this.colTien.Name = "colTien";
+            // 
+            // colAddress
+            // 
+            this.colAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colAddress.HeaderText = "Địa chỉ";
+            this.colAddress.Name = "colAddress";
+            // 
+            // colName
+            // 
+            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colName.HeaderText = "Tên khách hàng";
+            this.colName.Name = "colName";
+            // 
+            // colMa
+            // 
+            this.colMa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMa.HeaderText = "Số tài khoản";
+            this.colMa.Name = "colMa";
+            // 
+            // colSTT
+            // 
+            this.colSTT.HeaderText = "STT";
+            this.colSTT.Name = "colSTT";
+            this.colSTT.Width = 40;
+            // 
+            // dgvTable
+            // 
+            this.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSTT,
+            this.colMa,
+            this.colName,
+            this.colAddress,
+            this.colTien});
+            this.dgvTable.Location = new System.Drawing.Point(12, 270);
+            this.dgvTable.Name = "dgvTable";
+            this.dgvTable.Size = new System.Drawing.Size(738, 340);
+            this.dgvTable.TabIndex = 8;
+            this.dgvTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTable_CellClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 622);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
@@ -254,7 +246,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvTable;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtName;
@@ -263,16 +254,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTien;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
+        private System.Windows.Forms.DataGridView dgvTable;
     }
 }
 
