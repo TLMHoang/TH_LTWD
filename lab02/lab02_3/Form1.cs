@@ -125,13 +125,16 @@ namespace lab02_3
         {
             if (e.KeyChar != (char)Keys.Back)
             {
+                
                 if (!char.IsDigit(e.KeyChar))
                 {
-                    e.KeyChar = (char)Keys.Back;
+                    //char a = txtSoTienTK.Text[txtSoTienTK.Text.Length - 1];
+                    e.KeyChar = '\0';
                     MessageBox.Show("Ô này chỉ có thể nhập số không nhập được chữ");
+
                 }
             }
-            
+
         }
 
         private void lstvData_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,6 +152,18 @@ namespace lab02_3
                 txtDiaChi.Text = lstvData.SelectedItems[0].SubItems[3].Text;
                 txtSoTienTK.Text = lstvData.SelectedItems[0].SubItems[4].Text;
             }
+        }
+
+        private void txtSoTienTK_KeyUp(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode != Keys.Back)
+            //{
+            //    if (!char.IsDigit((char)e.KeyCode))
+            //    {
+            //        e.KeyCode = null;
+            //        MessageBox.Show("Ô này chỉ có thể nhập số không nhập được chữ");
+            //    }
+            //}
         }
     }
 }

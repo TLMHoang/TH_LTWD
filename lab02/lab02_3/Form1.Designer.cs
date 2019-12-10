@@ -135,6 +135,7 @@
             this.txtSoTienTK.Size = new System.Drawing.Size(561, 26);
             this.txtSoTienTK.TabIndex = 8;
             this.txtSoTienTK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTienTK_KeyPress);
+            this.txtSoTienTK.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSoTienTK_KeyUp);
             // 
             // btnLuu
             // 
