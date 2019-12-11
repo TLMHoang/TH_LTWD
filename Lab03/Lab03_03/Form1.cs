@@ -97,5 +97,10 @@ namespace Lab03_02
                 rtxtData.Font = open.Font;
             }
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            rtxtData.Font = new Font(tscbxFont.Text, float.Parse(tscbxSize.Text), FontStyle.Underline);
+        }
     }
 }
