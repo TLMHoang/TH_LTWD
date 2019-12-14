@@ -35,6 +35,7 @@ namespace Lab03_02
         private void tsmiNew_Click(object sender, EventArgs e)
         {
             rtxtData.Text = "";
+            rtxtData.Font = new Font("Tahoma", 14);
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -65,8 +66,11 @@ namespace Lab03_02
 
         private void tscbxSize_TextChanged(object sender, EventArgs e)
         {
+            if (tscbxSize.Text == "")
+            {
+                tscbxSize.Text = "14";
+            }
             rtxtData.Font = new Font(tscbxFont.Text, float.Parse(tscbxSize.Text));
-            
         }
 
         private void tsbtnSave_Click(object sender, EventArgs e)
@@ -95,12 +99,15 @@ namespace Lab03_02
             if (open.ShowDialog() != DialogResult.Cancel)
             {
                 rtxtData.Font = open.Font;
+                //Form1 form = ne
             }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            rtxtData.Font = new Font(tscbxFont.Text, float.Parse(tscbxSize.Text), FontStyle.Underline);
+            //rtxtData.Font = new Font(tscbxFont.Text, float.Parse(tscbxSize.Text), FontStyle.Underline);
+            //rtxtData.Font = new Font()
         }
+
     }
 }
