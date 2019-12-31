@@ -70,7 +70,6 @@ namespace Lap04
                 if ((await s.CapNhap(s)))
                 {
                     MessageBox.Show("Cập Nhập thành công");
-                    lstStudent = db.Student.ToList();
                 }
                 else
                 {
@@ -78,7 +77,6 @@ namespace Lap04
                     if ((await s.Them(s)))
                     {
                         MessageBox.Show("Thêm thành công");
-                        lstStudent = db.Student.ToList();
                     }
                     else
                     {
@@ -95,33 +93,64 @@ namespace Lap04
                         lstStudent = db.Student.ToList();
                     }
                 }
-                else
-                {
-                    lstStudent = db.Student.ToList();
-                }
             }
+            lstStudent = db.Student.ToList();
             LoadDGV();
 
             s = new Student() ;
             
         }
 
-        private void txtMa_TextChanged(object sender, EventArgs e)
+        private async void btnXoa_Click(object sender, EventArgs e)
         {
-            
+            s.StudentID = txtMa.Text;
+            s.FullName = txtTen.Text;
+            s.FacultyID = lstFalculty.FirstOrDefault(p => p.FacultyName == cbxKhoa.SelectedItem.ToString()).FacultyID;
+            s.AverageScore = double.Parse(txtDiem.Text);
+
+            if (chbCheck.Checked)
+            {
+                if (await s.Xoa(s))
+                {
+                    MessageBox.Show("Xóa Thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Không xóa được.\n Thử lại");
+                }
+            }
+            else
+            {
+                await s.Xoa(s);
+            }
+            lstStudent = db.Student.ToList();
+            LoadDGV();
         }
 
-        private void txtTen_TextChanged(object sender, EventArgs e)
+        private void chbCheck_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (chbCheck.Checked)
+            {
+                MessageBox.Show("Chế độ sẽ thông báo cho bạn biết đang làm gì.");
+            }
+            else
+            {
+                MessageBox.Show("Chế độ sẽ không thông báo. Chỉ thông báo lỗi");
+            }
         }
 
-        private void cbxKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        private void dgvData_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            txtMa.Text = dgvData.Rows[dgvData.CurrentRow.Index].Cells[0].Value.ToString();
+            txtTen.Text = dgvData.Rows[dgvData.CurrentRow.Index].Cells[1].Value.ToString();
+            cbxKhoa.Text = dgvData.Rows[dgvData.CurrentRow.Index].Cells[2].Value.ToString();
+            txtDiem.Text = dgvData.Rows[dgvData.CurrentRow.Index].Cells[3].Value.ToString();
         }
 
-        private void txtDiem_TextChanged(object sender, EventArgs e)
+        private void btnKhoa_Click(object sender, EventArgs e)
         {
+            frmFalculty f = new frmFalculty(lstFalculty);
+            f.ShowDialog();
         }
     }
 }

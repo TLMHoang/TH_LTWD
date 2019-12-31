@@ -10,7 +10,7 @@
     using System.Windows.Forms;
 
     [Table("Student")]
-    public partial class Student
+    public partial class Student : ClassInterface<Student>
     {
         HandleDB db = new HandleDB();
 
@@ -63,10 +63,12 @@
         {
             try
             {
-                Student s = db.Student.ToList().FirstOrDefault(p => p.StudentID == student.StudentID);
+                Student s = db.Student.FirstOrDefault(p => p.StudentID == student.StudentID);
                 if (s != null)
                 {
-                    s = student;
+                    s.FullName = student.FullName;
+                    s.FacultyID = student.FacultyID;
+                    s.AverageScore = student.AverageScore;
                     db.SaveChanges();
                     return Task.FromResult(true);
                 }
@@ -74,7 +76,7 @@
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show("Lỗi thêm thử lại.\n Yes Xem lỗi", "Lỗi", MessageBoxButtons.YesNo) == DialogResult.OK)
+                if (MessageBox.Show("Lỗi Cập nhập thử lại.\n Yes Xem lỗi", "Lỗi", MessageBoxButtons.YesNo) == DialogResult.OK)
                 {
                     MessageBox.Show(ex.ToString());
                 }
@@ -87,10 +89,11 @@
         {
             try
             {
-                Student s = db.Student.ToList().FirstOrDefault(p => p.StudentID == student.StudentID);
+                Student s = db.Student.FirstOrDefault(p => p.StudentID == student.StudentID);
                 if (s != null)
                 {
                     db.Student.Remove(s);
+                    db.SaveChanges();
                     return Task.FromResult(true);
                 }
                 return Task.FromResult(false);
@@ -98,7 +101,7 @@
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show("Lỗi thêm thử lại.\n Yes Xem lỗi", "Lỗi", MessageBoxButtons.YesNo) == DialogResult.OK)
+                if (MessageBox.Show("Lỗi Xóa thử lại.\n Yes Xem lỗi", "Lỗi", MessageBoxButtons.YesNo) == DialogResult.OK)
                 {
                     MessageBox.Show(ex.ToString());
                 }
